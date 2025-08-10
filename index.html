@@ -70,14 +70,15 @@
     ul { margin: 10px 0 0 18px; padding: 0; }
     li { margin: 6px 0; line-height: 1.55; }
 
-    /* Push schedule down 6 inches (~144px) */
+    /* Push schedule down ~12 inches (~288px) */
     #schedule {
-      margin-top: 144px;
+      margin-top: 288px;
     }
 
+    /* Contact info aligned flush right */
     .info-contact {
       max-width: 360px;
-      margin: 60px 16px 24px auto;
+      margin: 60px 0 24px auto;  /* flush right */
       text-align: right;
       line-height: 1.45;
       text-shadow: 1px 2px 6px rgba(0,0,0,.7);
@@ -102,7 +103,7 @@
     @media (max-width: 640px) {
       .hero { min-height: 88vh; padding-top: 9vh; }
       h1 { font-size: 2.2rem; }
-      .info-contact { margin-right: 12px; max-width: 280px; }
+      .info-contact { margin-right: 0; max-width: 280px; }
     }
   </style>
 </head>
