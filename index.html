@@ -10,13 +10,13 @@
       --accent: #c9d3e0;
       --bg1: #0b0d12;
       --bg2: #1b2035;
+      --shadow: rgba(0,0,0,.7);
     }
 
-    html, body { height: 100%; margin: 0; }
+    html, body { height: 100%; margin: 0; scroll-behavior: smooth; }
     body {
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      text-align: center;
       min-height: 100vh;
       background:
         url("assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / cover no-repeat,
@@ -25,7 +25,7 @@
       position: relative;
     }
 
-    /* Gentle readability gradient, no boxes */
+    /* Soft readability gradient over image */
     body::before {
       content: "";
       position: fixed;
@@ -33,7 +33,7 @@
       background: linear-gradient(
         to bottom,
         rgba(0,0,0,.55) 0%,
-        rgba(0,0,0,.35) 35%,
+        rgba(0,0,0,.25) 35%,
         rgba(0,0,0,.55) 100%
       );
       pointer-events: none;
@@ -42,77 +42,110 @@
 
     header, main, footer { position: relative; z-index: 1; }
 
-    header {
-      padding: 72px 20px 16px;
+    /* HERO: keep art unobscured */
+    .hero {
+      min-height: 86vh; /* leaves art visible on first screen */
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero-inner {
+      margin-top: 4vh;
+      text-shadow: 2px 3px 8px var(--shadow);
     }
     h1 {
-      margin: 0;
-      font-size: 3rem;
+      margin: 0 0 8px;
+      font-size: clamp(2.2rem, 5.2vw, 3.4rem);
       color: var(--accent);
-      text-shadow: 2px 3px 8px rgba(0,0,0,.7);
     }
-    h2 {
-      margin: 8px 0 0;
+    .tagline {
+      margin: 0;
       font-size: 1.1rem;
       opacity: .95;
+    }
+    .cta {
+      margin-top: 18px;
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--text);
+      text-decoration: none;
+      backdrop-filter: blur(2px) saturate(1.05);
+    }
+    .cta:hover { text-decoration: underline; }
+
+    /* CONTENT: starts below hero so it doesn't cover title/art */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 20px 40px;
       text-shadow: 1px 2px 6px rgba(0,0,0,.6);
     }
 
-    /* Content without a shaded card */
-    main {
-      max-width: 900px;
-      margin: 36px auto 0;
-      padding: 0 20px 36px;
-      text-align: left;
-    }
-
-    section { margin: 22px 0; }
-
-    /* Headings + text readability without boxes */
+    section { margin: 28px 0; }
     h3 {
       margin: 0 0 10px;
       font-size: 1.15rem;
       color: var(--accent);
-      text-shadow: 1px 2px 6px rgba(0,0,0,.6);
     }
-    p, li {
-      text-shadow: 1px 2px 6px rgba(0,0,0,.6);
-      line-height: 1.55;
-    }
+    ul { margin: 10px 0 0 18px; padding: 0; }
+    li { margin: 6px 0; line-height: 1.55; }
 
-    ul { margin: 8px 0 0 18px; padding: 0; }
-    li { margin: 6px 0; }
+    footer {
+      margin: 30px 0 80px; /* give room above floating contact card */
+      color: var(--accent);
+      font-size: .9rem;
+      text-align: center;
+    }
 
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    footer {
-      margin: 30px 0 24px;
-      color: var(--accent);
-      font-size: .9rem;
-      text-shadow: 1px 2px 6px rgba(0,0,0,.6);
+    /* CONTACT: fixed, lower-right, unobtrusive */
+    .contact-card {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 2;
+      background: rgba(0,0,0,.50);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      padding: 10px 12px;
+      backdrop-filter: blur(3px) saturate(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,.35);
+      font-size: 0.95rem;
     }
+    .contact-card strong { display: block; font-size: 0.8rem; color: var(--accent); margin-bottom: 4px; }
+    .contact-card a { word-break: break-word; }
 
-    /* Small screens: add a touch more top space so text clears busy art */
+    /* Small screens */
     @media (max-width: 640px) {
-      header { padding-top: 84px; }
-      h1 { font-size: 2.4rem; }
+      .hero { min-height: 78vh; }
+      .contact-card { font-size: 0.9rem; right: 12px; bottom: 12px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Armor Of Light Music Festival</h1>
-    <h2>Central Coast, California — This Fall</h2>
+  <!-- HERO (keeps BG art visible) -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <h1>Armor Of Light Music Festival</h1>
+      <p class="tagline">Central Coast, California — This Fall</p>
+      <a class="cta" href="#schedule">View Schedule</a>
+    </div>
   </header>
 
+  <!-- CONTENT BELOW HERO (page scrolls to this) -->
   <main>
     <section>
       <p>Join us for a transcendent day of rock-worship, praise, and community.</p>
       <p><strong>Organized by Simeon Neff Consulting.</strong></p>
     </section>
 
-    <section>
+    <section id="schedule">
       <h3>Schedule (Draft)</h3>
       <ul>
         <li><strong>12:00 PM</strong> — Acoustic Worship (Local Artist)</li>
@@ -123,12 +156,13 @@
         <li><strong>7:00 PM</strong> — Finale Worship Jam</li>
       </ul>
     </section>
-
-    <section>
-      <h3>Contact</h3>
-      <p>Booking & inquiries: <a href="mailto:sneff3@my.gcu.edu">sneff3@my.gcu.edu</a></p>
-    </section>
   </main>
+
+  <!-- FLOATING CONTACT (lower-right) -->
+  <div class="contact-card" aria-label="Contact">
+    <strong>Contact</strong>
+    <a href="mailto:sneff3@my.gcu.edu">sneff3@my.gcu.edu</a>
+  </div>
 
   <footer>
     © <span id="year"></span> Armor Of Light Music Festival. All rights reserved.
