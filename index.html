@@ -10,7 +10,7 @@
       --accent: #c9d3e0;
       --bg1: #0b0d12;
       --bg2: #1b2035;
-      --shadow: rgba(0,0,0,.75);
+      --shadow: rgba(0,0,0,.7);
     }
 
     html, body { height: 100%; margin: 0; scroll-behavior: smooth; }
@@ -18,48 +18,31 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        url("assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / cover no-repeat fixed,
+        url("assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / cover no-repeat,
         radial-gradient(1200px 600px at 20% -10%, var(--bg2) 0%, var(--bg1) 55%) no-repeat,
         var(--bg1);
-      position: relative;
+      /* No fixed layers — page scrolls as one */
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,.50) 0%,
-        rgba(0,0,0,.22) 34%,
-        rgba(0,0,0,.52) 100%
-      );
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    header, main, footer { position: relative; z-index: 1; }
-
-    /* HERO covers most of the viewport without schedule overlap */
+    /* HERO — keep text high so shield/art show through */
     .hero {
-      height: 100vh; /* full viewport height */
+      min-height: 95vh;            /* almost a full screen to reveal BG */
       display: flex;
-      flex-direction: column;
+      align-items: flex-start;     /* keep text higher */
       justify-content: center;
-      align-items: center;
       text-align: center;
-      padding: 0 20px;
+      padding: 10vh 20px 0;        /* push down a little from very top */
     }
     .hero-inner { text-shadow: 2px 3px 8px var(--shadow); }
     h1 {
       margin: 0 0 8px;
-      font-size: clamp(2rem, 4.8vw, 3.2rem);
+      font-size: clamp(2rem, 4.6vw, 3.1rem);
       color: var(--accent);
     }
     .tagline {
       margin: 0;
       font-size: 1.05rem;
-      opacity: .95;
+      opacity: .96;
     }
     .cta {
       margin-top: 14px;
@@ -73,13 +56,15 @@
     }
     .cta:hover { text-decoration: underline; }
 
+    /* MAIN CONTENT lives fully below the hero — no overlapping BG */
     main {
       max-width: 900px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 40px 20px 24px;
       text-shadow: 1px 2px 6px rgba(0,0,0,.6);
     }
 
+    section { margin: 28px 0; }
     h3 {
       margin: 0 0 10px;
       font-size: 1.15rem;
@@ -88,43 +73,40 @@
     ul { margin: 10px 0 0 18px; padding: 0; }
     li { margin: 6px 0; line-height: 1.55; }
 
+    /* Lower-right info block INSIDE normal page flow (not fixed) */
+    .info-contact {
+      max-width: 360px;
+      margin: 60px 16px 24px auto;  /* right side, ~“6 inches” down */
+      text-align: right;
+      line-height: 1.45;
+      text-shadow: 1px 2px 6px rgba(0,0,0,.7);
+    }
+    .info-contact .label {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .info-contact a { color: var(--accent); text-decoration: none; }
+    .info-contact a:hover { text-decoration: underline; }
+
     footer {
-      margin: 30px 0 80px;
+      margin: 40px 0 40px;
       color: var(--accent);
       font-size: .9rem;
       text-align: center;
       text-shadow: 1px 2px 6px rgba(0,0,0,.6);
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .corner-info {
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      z-index: 2;
-      max-width: 320px;
-      text-align: right;
-      font-size: 0.95rem;
-      line-height: 1.45;
-      text-shadow: 1px 2px 6px rgba(0,0,0,.7);
-    }
-    .corner-info .label {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-
     @media (max-width: 640px) {
-      .hero { height: 90vh; }
+      .hero { min-height: 88vh; padding-top: 9vh; }
       h1 { font-size: 2.2rem; }
-      .corner-info { right: 12px; bottom: 12px; font-size: 0.9rem; max-width: 260px; }
+      .info-contact { margin-right: 12px; max-width: 280px; }
     }
   </style>
 </head>
 <body>
+  <!-- HERO (shows BG art/shield; text kept high) -->
   <header class="hero" id="top">
     <div class="hero-inner">
       <h1>Armor Of Light Music Festival</h1>
@@ -133,6 +115,7 @@
     </div>
   </header>
 
+  <!-- CONTENT BELOW HERO (scroll down to see) -->
   <main>
     <section id="schedule">
       <h3>Schedule (Draft)</h3>
@@ -145,13 +128,14 @@
         <li><strong>7:00 PM</strong> — Finale Worship Jam</li>
       </ul>
     </section>
-  </main>
 
-  <div class="corner-info" aria-label="Info and Contact">
-    <span class="label">Join us for a transcendent day of rock-worship, praise, and community.</span>
-    <span class="label">Organized by Simeon Neff Consulting.</span>
-    <a href="mailto:sneff3@my.gcu.edu">sneff3@my.gcu.edu</a>
-  </div>
+    <!-- Lower-right info (in flow, below hero) -->
+    <aside class="info-contact" aria-label="Info and Contact">
+      <span class="label">Join us for a transcendent day of rock-worship, praise, and community.</span>
+      <span class="label">Organized by Simeon Neff Consulting.</span>
+      <a href="mailto:sneff3@my.gcu.edu">sneff3@my.gcu.edu</a>
+    </aside>
+  </main>
 
   <footer>
     © <span id="year"></span> Armor Of Light Music Festival. All rights reserved.
