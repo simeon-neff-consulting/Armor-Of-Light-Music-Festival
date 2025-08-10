@@ -1,156 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Armor of Light Music Festival | Central Coast Christian Rock</title>
-  <meta name="description" content="Armor of Light Music Festival — a one-day Christian rock gathering on California’s Central Coast. Organized by Simeon Neff Consulting." />
-  <!-- Optional favicon (will work after we add assets/favicon.svg) -->
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Armor Of Light Music Festival</title>
   <style>
-    :root{
-      --bg:#0b0d12;
-      --card:#121622;
-      --text:#eef2ff;
-      --muted:#b3b9d4;
-      --link:#a5b4fc;
-      /* blue / silver / magnesium white */
-      --silver-1:#F7FAFF;
-      --silver-2:#D4DCE6;
-      --navy-1:#0E1A2B;
+    :root {
+      --text-color: #f7faff;
+      --accent-color: #c9d3e0;
+      --bg-dark: #0b0d12;
+      --bg-light: #1b2035;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      /* Uses hero background if present; otherwise shows a radial fallback */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+      text-align: center;
       background:
-        url("assets/hero-bg.svg") center top/cover no-repeat,
-        radial-gradient(1200px 600px at 20% -10%, #1b2035 0%, #0b0d12 55%) no-repeat,
-        var(--bg);
-      line-height:1.55;
+        url("assets/DoreArmorLight.png") center top/cover no-repeat,
+        radial-gradient(1200px 600px at 20% -10%, var(--bg-light) 0%, var(--bg-dark) 55%) no-repeat,
+        var(--bg-dark);
     }
-    a{color:var(--link);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:1050px;margin:0 auto;padding:28px 20px 60px}
-    header{
-      display:grid;gap:14px;justify-items:start;
-      padding:28px;border-radius:18px;
-      background:linear-gradient(180deg, rgba(21,26,42,.75) 0%, rgba(15,19,32,.75) 100%);
-      box-shadow:0 10px 30px rgba(0,0,0,.45), inset 0 0 80px rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.06);
-      backdrop-filter:saturate(1.1) blur(4px);
+    header {
+      padding: 60px 20px 20px 20px;
     }
-    .brand-pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:13px}
-    .logo{display:block;width:min(720px,90%);max-width:720px}
-    .title-fallback{font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:.5px;margin:0}
-    .tag{font-size:clamp(14px,2.5vw,18px);color:var(--muted)}
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-    .btn{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#0f1426;color:var(--text);font-weight:700}
-    .btn.primary{background:linear-gradient(90deg, var(--silver-1) 0%, var(--silver-2) 100%);color:#0a0f1a;border:none}
-    .grid{display:grid;gap:18px;margin-top:26px}
-    @media (min-width:860px){ .grid.cols-3{grid-template-columns:1fr 1fr 1fr} }
-    section.card{
-      background:rgba(18,22,34,.88);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:16px;
-      padding:22px;
-      box-shadow:0 10px 24px rgba(0,0,0,.35);
-      backdrop-filter:saturate(1.1) blur(3px);
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      color: var(--accent-color);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
     }
-    h2{margin:0 0 8px;font-size:22px;letter-spacing:.3px}
-    .muted{color:var(--muted)}
-    ul.clean{margin:10px 0 0;padding-left:18px}
-    .schedule li{margin-bottom:6px}
-    footer{margin-top:26px;padding-top:18px;color:var(--muted);font-size:14px;border-top:1px dashed rgba(255,255,255,.12)}
-    .brand{font-weight:800;color:var(--silver-1)}
+    h2 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: var(--text-color);
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: rgba(0,0,0,0.5);
+      padding: 20px;
+      border-radius: 8px;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: var(--accent-color);
+    }
+    a {
+      color: var(--accent-color);
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand-pill">Organized by Simeon Neff Consulting</div>
-
-      <!-- Logo image (will show after we add assets/armor-logo.svg).
-           The text title below is a fallback so the page still looks good now. -->
-      <picture>
-        <source srcset="assets/armor-logo.svg" type="image/svg+xml">
-        <img class="logo" src="assets/armor-logo.svg" alt="Armor of Light Music Festival" onerror="this.style.display='none'">
-      </picture>
-      <h1 class="title-fallback">Armor of Light Music Festival</h1>
-
-      <div class="tag">Central Coast • California • Christian Rock</div>
-      <div class="muted">“Put on the armor of light.” — Romans 13:12 (NKJV)</div>
-
-      <div class="cta-row">
-        <a class="btn primary" href="#tickets">Get Tickets</a>
-        <a class="btn" href="#lineup">See Lineup</a>
-        <a class="btn" href="#contact">Partner / Volunteer</a>
-      </div>
-    </header>
-
-    <div class="grid cols-3">
-      <section id="lineup" class="card">
-        <h2>Lineup & Schedule</h2>
-        <div class="muted">Saturday in early October • Gates at 12:00 PM</div>
-        <ul class="clean schedule">
-          <li><strong>12:00 PM</strong> — Acoustic Worship (Local Artist)</li>
-          <li><strong>1:00 PM</strong> — Collington</li>
-          <li><strong>2:00 PM</strong> — The Choir</li>
-          <li><strong>3:30 PM</strong> — Sanctus Real</li>
-          <li><strong>5:00 PM</strong> — RED (Headliner)</li>
-          <li><strong>7:00 PM</strong> — Finale Worship Jam</li>
-        </ul>
-      </section>
-
-      <section id="experience" class="card">
-        <h2>Experience</h2>
-        <p>High-energy Christian rock all day, plus food trucks, art installations, Prayer & Reflection lounge, and vendor village.</p>
-        <p class="muted">Family-friendly • Outdoor • Ocean-air vibes</p>
-      </section>
-
-      <section id="tickets" class="card">
-        <h2>Tickets</h2>
-        <p><em>Early Bird “Armor Bearer” passes</em> dropping soon. Join the list and be first to know.</p>
-        <p><a href="#contact" class="btn">Join Interest List</a></p>
-      </section>
-    </div>
-
-    <section id="about" class="card" style="margin-top:18px">
-      <h2>About the Festival</h2>
-      <p><span class="brand">Armor of Light Music Festival</span> is a one-day Christian rock gathering on California’s Central Coast, calling the Church to boldness, unity, and worship. We celebrate the Lion of Judah with guitars loud and hearts open.</p>
-    </section>
-
-    <section id="organizer" class="card" style="margin-top:18px">
-      <h2>Organizer: Simeon Neff Consulting</h2>
-      <p>Simeon Neff Consulting (SNC) designs impact-driven faith and community events. For booking, partnerships, or press, reach out below.</p>
-    </section>
-
-    <section id="contact" class="card" style="margin-top:18px">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:sneff3@my.gcu.edu">sneff3@my.gcu.edu</a></p>
-      <p>Instagram / Facebook: @ArmorOfLightFest</p>
-    </section>
-
-    <footer>
-      <div>© <span id="year"></span> Armor of Light Music Festival • Organized by Simeon Neff Consulting</div>
-    </footer>
-  </div>
-
-  <script>
-    // Year stamp
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // Hide text title if logo loads successfully
-    (function(){
-      const img = document.querySelector('.logo');
-      const fallback = document.querySelector('.title-fallback');
-      if(!img) return;
-      if(img.complete && img.naturalWidth>0){ fallback.style.display='none'; }
-      else{ img.addEventListener('load', ()=> fallback.style.display='none'); }
-    })();
-  </script>
+  <header>
+    <h1>Armor Of Light Music Festival</h1>
+    <h2>Central Coast California - This Fall</h2>
+  </header>
+  <main>
+    <p>Join us for a transcendent day of Christian rock, praise, and fellowship.</p>
+    <p>Organized by Simeon Neff Consulting.</p>
+    <p>For booking or inquiries, email: <a href="mailto:sneff3@my.gcu.edu">sneff3@my.gcu.edu</a></p>
+  </main>
+  <footer>
+    &copy; 2025 Armor Of Light Music Festival. All rights reserved.
+  </footer>
 </body>
 </html>
-
