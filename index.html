@@ -17,15 +17,13 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      min-height: 100vh;
       background:
-        url("assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / cover no-repeat,
+        url("assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / cover no-repeat fixed,
         radial-gradient(1200px 600px at 20% -10%, var(--bg2) 0%, var(--bg1) 55%) no-repeat,
         var(--bg1);
       position: relative;
     }
 
-    /* Soft readability gradient over image (no boxes) */
     body::before {
       content: "";
       position: fixed;
@@ -42,12 +40,11 @@
 
     header, main, footer { position: relative; z-index: 1; }
 
-    /* HERO: move higher so it doesn't cover the “Armor of Light” in the art */
     .hero {
       min-height: 72vh;
       display: grid;
-      place-items: start center;     /* center horizontally, start vertically */
-      padding: 10vh 20px 12px;       /* push content down a bit from the top */
+      place-items: start center;
+      padding: 10vh 20px 12px;
       text-align: center;
     }
     .hero-inner { text-shadow: 2px 3px 8px var(--shadow); }
@@ -73,15 +70,18 @@
     }
     .cta:hover { text-decoration: underline; }
 
-    /* CONTENT BELOW HERO (scroll to see) */
     main {
       max-width: 900px;
       margin: 0 auto;
       padding: 8px 20px 40px;
       text-shadow: 1px 2px 6px rgba(0,0,0,.6);
-      text-align: left;
     }
-    section { margin: 28px 0; }
+
+    /* Push schedule down ~6 inches (~15vh) */
+    #schedule {
+      margin-top: 15vh;
+    }
+
     h3 {
       margin: 0 0 10px;
       font-size: 1.15rem;
@@ -91,7 +91,7 @@
     li { margin: 6px 0; line-height: 1.55; }
 
     footer {
-      margin: 30px 0 80px; /* leave space above corner text */
+      margin: 30px 0 80px;
       color: var(--accent);
       font-size: .9rem;
       text-align: center;
@@ -101,7 +101,6 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* LOWER-RIGHT TEXT BLOCK (no shaded box) */
     .corner-info {
       position: fixed;
       right: 16px;
@@ -111,7 +110,6 @@
       text-align: right;
       font-size: 0.95rem;
       line-height: 1.45;
-      /* no background/border—just readable text */
       text-shadow: 1px 2px 6px rgba(0,0,0,.7);
     }
     .corner-info .label {
@@ -121,7 +119,6 @@
       margin-bottom: 4px;
     }
 
-    /* Small screens */
     @media (max-width: 640px) {
       .hero { min-height: 68vh; padding-top: 9vh; }
       h1 { font-size: 2.2rem; }
@@ -130,7 +127,6 @@
   </style>
 </head>
 <body>
-  <!-- HERO (kept high, unobtrusive) -->
   <header class="hero" id="top">
     <div class="hero-inner">
       <h1>Armor Of Light Music Festival</h1>
@@ -139,7 +135,6 @@
     </div>
   </header>
 
-  <!-- CONTENT BELOW HERO -->
   <main>
     <section id="schedule">
       <h3>Schedule (Draft)</h3>
@@ -154,7 +149,6 @@
     </section>
   </main>
 
-  <!-- LOWER-RIGHT: Join/Organizer/Contact (no box) -->
   <div class="corner-info" aria-label="Info and Contact">
     <span class="label">Join us for a transcendent day of rock-worship, praise, and community.</span>
     <span class="label">Organized by Simeon Neff Consulting.</span>
