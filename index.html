@@ -17,7 +17,7 @@
       color: var(--text-color);
       text-align: center;
       background:
-        url("assets/ChatGPT Image Aug 10, 2025 at 12_47_38 PM.png") center top / cover no-repeat,
+        url("https://simeon-neff-consulting.github.io/Armor-Of-Light-Music-Festival/assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / cover no-repeat,
         radial-gradient(1200px 600px at 20% -10%, var(--bg-light) 0%, var(--bg-dark) 55%) no-repeat,
         var(--bg-dark);
     }
@@ -28,4 +28,71 @@
     h1 {
       font-size: 3rem;
       margin: 0;
+      color: var(--accent-color);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin: 6px 0 0;
+      color: var(--text-color);
+      opacity: 0.95;
+    }
+    main {
+      max-width: 840px;
+      margin: 40px auto;
+      background-color: rgba(0,0,0,0.55);
+      padding: 24px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(2px) saturate(1.05);
+    }
+    section { margin: 18px 0; }
+    footer {
+      margin: 40px 0 24px;
+      font-size: 0.9rem;
+      color: var(--accent-color);
+    }
+    a { color: var(--accent-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { text-align: left; max-width: 680px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Armor Of Light Music Festival</h1>
+    <h2>Central Coast, California — This Fall</h2>
+  </header>
 
+  <main>
+    <section>
+      <p>Join us for a transcendent day of rock-worship, praise, and community.</p>
+      <p><strong>Organized by Simeon Neff Consulting.</strong></p>
+    </section>
+
+    <section>
+      <h3>Schedule (Draft)</h3>
+      <ul>
+        <li>12:00 PM — Acoustic Worship (Local Artist)</li>
+        <li>1:00 PM — Collington</li>
+        <li>2:00 PM — The Choir</li>
+        <li>3:30 PM — Sanctus Real</li>
+        <li>5:00 PM — RED (Headliner)</li>
+        <li>7:00 PM — Finale Worship Jam</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Contact</h3>
+      <p>For booking or inquiries: <a href="mailto:sneff3@my.gcu.edu">sneff3@my.gcu.edu</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Armor Of Light Music Festival. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
