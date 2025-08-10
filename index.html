@@ -2,59 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Armor Of Light Music Festival</title>
   <style>
     :root {
-      --text-color: #f7faff;
-      --accent-color: #c9d3e0;
-      --bg-dark: #0b0d12;
-      --bg-light: #1b2035;
+      --text: #f7faff;
+      --accent: #c9d3e0;
+      --bg1: #0b0d12;
+      --bg2: #1b2035;
     }
+
+    /* Page base */
+    html, body { height: 100%; margin: 0; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: var(--text-color);
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
       text-align: center;
+      min-height: 100vh;
+      /* USE THE EXACT FILE IN /assets WITH ENCODING */
       background:
-        url("https://simeon-neff-consulting.github.io/Armor-Of-Light-Music-Festival/assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / cover no-repeat,
-        radial-gradient(1200px 600px at 20% -10%, var(--bg-light) 0%, var(--bg-dark) 55%) no-repeat,
-        var(--bg-dark);
+        url("assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / cover no-repeat,
+        radial-gradient(1200px 600px at 20% -10%, var(--bg2) 0%, var(--bg1) 55%) no-repeat,
+        var(--bg1);
+      position: relative;
     }
+
+    /* Readability overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.25) 30%, rgba(0,0,0,.55));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header, main, footer { position: relative; z-index: 1; }
+
     header {
-      padding: 60px 20px 20px 20px;
-      background: rgba(0,0,0,0.35);
+      padding: 56px 20px 18px;
     }
     h1 {
-      font-size: 3rem;
       margin: 0;
-      color: var(--accent-color);
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      font-size: 3rem;
+      color: var(--accent);
+      text-shadow: 2px 2px 6px rgba(0,0,0,.65);
     }
     h2 {
-      font-size: 1.25rem;
       margin: 6px 0 0;
-      color: var(--text-color);
-      opacity: 0.95;
+      font-size: 1.1rem;
+      opacity: .95;
     }
+
     main {
-      max-width: 840px;
+      max-width: 860px;
       margin: 40px auto;
-      background-color: rgba(0,0,0,0.55);
+      text-align: left;
+      background: rgba(0,0,0,.55);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
       padding: 24px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.12);
       backdrop-filter: blur(2px) saturate(1.05);
     }
     section { margin: 18px 0; }
-    footer {
-      margin: 40px 0 24px;
-      font-size: 0.9rem;
-      color: var(--accent-color);
-    }
-    a { color: var(--accent-color); text-decoration: none; }
+    ul { margin: 10px 0 0 18px; }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    ul { text-align: left; max-width: 680px; margin: 0 auto; }
+
+    footer {
+      margin: 36px 0 24px;
+      color: var(--accent);
+      font-size: .9rem;
+    }
   </style>
 </head>
 <body>
@@ -72,18 +91,18 @@
     <section>
       <h3>Schedule (Draft)</h3>
       <ul>
-        <li>12:00 PM — Acoustic Worship (Local Artist)</li>
-        <li>1:00 PM — Collington</li>
-        <li>2:00 PM — The Choir</li>
-        <li>3:30 PM — Sanctus Real</li>
-        <li>5:00 PM — RED (Headliner)</li>
-        <li>7:00 PM — Finale Worship Jam</li>
+        <li><strong>12:00 PM</strong> — Acoustic Worship (Local Artist)</li>
+        <li><strong>1:00 PM</strong> — Collington</li>
+        <li><strong>2:00 PM</strong> — The Choir</li>
+        <li><strong>3:30 PM</strong> — Sanctus Real</li>
+        <li><strong>5:00 PM</strong> — RED (Headliner)</li>
+        <li><strong>7:00 PM</strong> — Finale Worship Jam</li>
       </ul>
     </section>
 
     <section>
       <h3>Contact</h3>
-      <p>For booking or inquiries: <a href="mailto:sneff3@my.gcu.edu">sneff3@my.gcu.edu</a></p>
+      <p>Booking & inquiries: <a href="mailto:sneff3@my.gcu.edu">sneff3@my.gcu.edu</a></p>
     </section>
   </main>
 
