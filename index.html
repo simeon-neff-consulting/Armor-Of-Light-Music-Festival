@@ -40,12 +40,15 @@
 
     header, main, footer { position: relative; z-index: 1; }
 
+    /* HERO covers most of the viewport without schedule overlap */
     .hero {
-      min-height: 72vh;
-      display: grid;
-      place-items: start center;
-      padding: 10vh 20px 12px;
+      height: 100vh; /* full viewport height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      padding: 0 20px;
     }
     .hero-inner { text-shadow: 2px 3px 8px var(--shadow); }
     h1 {
@@ -73,13 +76,8 @@
     main {
       max-width: 900px;
       margin: 0 auto;
-      padding: 8px 20px 40px;
+      padding: 40px 20px;
       text-shadow: 1px 2px 6px rgba(0,0,0,.6);
-    }
-
-    /* Push schedule down ~6 inches (~15vh) */
-    #schedule {
-      margin-top: 15vh;
     }
 
     h3 {
@@ -120,7 +118,7 @@
     }
 
     @media (max-width: 640px) {
-      .hero { min-height: 68vh; padding-top: 9vh; }
+      .hero { height: 90vh; }
       h1 { font-size: 2.2rem; }
       .corner-info { right: 12px; bottom: 12px; font-size: 0.9rem; max-width: 260px; }
     }
@@ -141,9 +139,9 @@
       <ul>
         <li><strong>12:00 PM</strong> — Acoustic Worship (Local Artist)</li>
         <li><strong>1:00 PM</strong> — Collington</li>
-        <li><strong>2:00 PM</strong> — The Choir</li>
+        <li><strong>2:00 PM</strong> — Fireflight</li>
         <li><strong>3:30 PM</strong> — Sanctus Real</li>
-        <li><strong>5:00 PM</strong> — RED (Headliner)</li>
+        <li><strong>5:00 PM</strong> — Switchfoot (Headliner)</li>
         <li><strong>7:00 PM</strong> — Finale Worship Jam</li>
       </ul>
     </section>
