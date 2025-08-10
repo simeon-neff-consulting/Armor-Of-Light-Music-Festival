@@ -21,17 +21,15 @@
         url("assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / cover no-repeat,
         radial-gradient(1200px 600px at 20% -10%, var(--bg2) 0%, var(--bg1) 55%) no-repeat,
         var(--bg1);
-      /* No fixed layers — page scrolls as one */
     }
 
-    /* HERO — keep text high so shield/art show through */
     .hero {
-      min-height: 95vh;            /* almost a full screen to reveal BG */
+      min-height: 95vh;
       display: flex;
-      align-items: flex-start;     /* keep text higher */
+      align-items: flex-start;
       justify-content: center;
       text-align: center;
-      padding: 10vh 20px 0;        /* push down a little from very top */
+      padding: 10vh 20px 0;
     }
     .hero-inner { text-shadow: 2px 3px 8px var(--shadow); }
     h1 {
@@ -56,7 +54,6 @@
     }
     .cta:hover { text-decoration: underline; }
 
-    /* MAIN CONTENT lives fully below the hero — no overlapping BG */
     main {
       max-width: 900px;
       margin: 0 auto;
@@ -73,10 +70,14 @@
     ul { margin: 10px 0 0 18px; padding: 0; }
     li { margin: 6px 0; line-height: 1.55; }
 
-    /* Lower-right info block INSIDE normal page flow (not fixed) */
+    /* Push schedule down 6 inches (~144px) */
+    #schedule {
+      margin-top: 144px;
+    }
+
     .info-contact {
       max-width: 360px;
-      margin: 60px 16px 24px auto;  /* right side, ~“6 inches” down */
+      margin: 60px 16px 24px auto;
       text-align: right;
       line-height: 1.45;
       text-shadow: 1px 2px 6px rgba(0,0,0,.7);
@@ -106,7 +107,6 @@
   </style>
 </head>
 <body>
-  <!-- HERO (shows BG art/shield; text kept high) -->
   <header class="hero" id="top">
     <div class="hero-inner">
       <h1>Armor Of Light Music Festival</h1>
@@ -115,7 +115,6 @@
     </div>
   </header>
 
-  <!-- CONTENT BELOW HERO (scroll down to see) -->
   <main>
     <section id="schedule">
       <h3>Schedule (Draft)</h3>
@@ -129,7 +128,6 @@
       </ul>
     </section>
 
-    <!-- Lower-right info (in flow, below hero) -->
     <aside class="info-contact" aria-label="Info and Contact">
       <span class="label">Join us for a transcendent day of rock-worship, praise, and community.</span>
       <span class="label">Organized by Simeon Neff Consulting.</span>
