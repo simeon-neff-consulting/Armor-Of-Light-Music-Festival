@@ -17,13 +17,14 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      /* DESKTOP/TABLET: fill screen nicely */
+      /* DESKTOP/TABLET (unchanged from the version you liked) */
       background:
         url("assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / cover no-repeat,
         radial-gradient(1200px 600px at 20% -10%, var(--bg2) 0%, var(--bg1) 55%) no-repeat,
         var(--bg1);
     }
 
+    /* HERO (desktop/tablet as before) */
     .hero {
       min-height: 95vh;
       display: flex;
@@ -61,4 +62,98 @@
     section { margin: 28px 0; }
     h3 { margin: 0 0 10px; font-size: 1.15rem; color: var(--accent); }
     ul { margin: 10px 0 0 18px; padding: 0; }
-    li { mar
+    li { margin: 6px 0; line-height: 1.55; }
+
+    /* Schedule offset (unchanged desktop/tablet: ~15 inches) */
+    #schedule { margin-top: 360px; }
+
+    /* Contact block flush right (unchanged) */
+    .info-contact {
+      max-width: 360px;
+      margin: 12px 0 24px auto;
+      text-align: right;
+      line-height: 1.45;
+      text-shadow: 1px 2px 6px rgba(0,0,0,.7);
+    }
+    .info-contact .label {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .info-contact a { color: var(--accent); text-decoration: none; }
+    .info-contact a:hover { text-decoration: underline; }
+
+    footer {
+      margin: 40px 0 40px;
+      color: var(--accent);
+      font-size: .9rem;
+      text-align: center;
+      text-shadow: 1px 2px 6px rgba(0,0,0,.6);
+    }
+
+    /* -------- MOBILE ONLY FIXES (leave laptop unchanged) -------- */
+    @media (max-width: 640px) {
+      /* Fit the whole image (no crop), normal scroll */
+      body {
+        background:
+          url("assets/ChatGPT%20Image%20Aug%2010%2C%202025%20at%2012_47_38%20PM.png") center top / contain no-repeat,
+          radial-gradient(1200px 600px at 20% -10%, var(--bg2) 0%, var(--bg1) 55%) no-repeat,
+          var(--bg1);
+        background-attachment: scroll;
+      }
+
+      /* Drop hero text so it sits in the black space under the rose */
+      .hero {
+        min-height: 100vh;
+        padding-top: 20vh;   /* push down ~3–4 inches on phones */
+        justify-content: center;
+        align-items: flex-start;
+      }
+      h1 { font-size: 2.1rem; }
+
+      /* Bring schedule a bit closer on phones (still below hero) */
+      #schedule { margin-top: 220px; }
+
+      .info-contact { max-width: 280px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <h1>Armor Of Light Music Festival</h1>
+      <p class="tagline">Central Coast, California — October 31, 2025</p>
+      <a class="cta" href="#schedule">View Schedule</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="schedule">
+      <h3>Schedule (Draft)</h3>
+      <ul>
+        <li><strong>12:00 PM</strong> — Acoustic Worship (Local Artist)</li>
+        <li><strong>1:00 PM</strong> — Collington</li>
+        <li><strong>2:00 PM</strong> — Fireflight</li>
+        <li><strong>3:30 PM</strong> — Sanctus Real</li>
+        <li><strong>5:00 PM</strong> — Switchfoot (Headliner)</li>
+        <li><strong>7:00 PM</strong> — Finale Worship Jam</li>
+      </ul>
+    </section>
+
+    <aside class="info-contact" aria-label="Info and Contact">
+      <span class="label">Join us for a transcendent day of rock-worship, praise, and community.</span>
+      <span class="label">Organized by Simeon Neff Consulting.</span>
+      <a href="mailto:sneff3@my.gcu.edu">sneff3@my.gcu.edu</a>
+    </aside>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Armor Of Light Music Festival. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
